@@ -424,7 +424,9 @@ public class DefaultSecurityKeyStore implements SecurityKeyStore {
                     getEnabledSSLCiphers(sslTransportClientProvider, false),
                     sslTransportClientProvider
                 );
+                log.info("INS-29407: Before Show current transport SSL certs keystore" + Arrays.toString(getTransportCerts()));
                 setTransportSSLCerts(certFromKeystore.getCerts());
+                log.info("INS-29407: After Show current transport SSL certs keystore" + Arrays.toString(getTransportCerts()));
             } catch (final Exception e) {
                 logExplanation(e);
                 throw new OpenSearchSecurityException("Error while initializing transport SSL layer: " + e.toString(), e);
@@ -477,7 +479,9 @@ public class DefaultSecurityKeyStore implements SecurityKeyStore {
                     getEnabledSSLCiphers(sslTransportClientProvider, false),
                     sslTransportClientProvider
                 );
+                log.info("INS-29407: Before Show current transport SSL certs keystore" + Arrays.toString(getTransportCerts()));
                 setTransportSSLCerts(certFromFile.getCerts());
+                log.info("INS-29407: After Show current transport SSL certs keystore" + Arrays.toString(getTransportCerts()));
 
             } catch (final Exception e) {
                 logExplanation(e);
